@@ -2,6 +2,6 @@
     <head>
         <meta charset="UTF-8">
         <title><?php echo $title; ?></title>
-        <link type="text/css" href="template/style/app.css"
+        <link type="text/css" rel="stylesheet" href="template/style/app.css" 
     </head>
-    <body>
+</html>
