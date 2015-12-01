@@ -45,5 +45,39 @@ function Listar(){
         echo"<td>" .$linha['quantidade']."</td>";
         echo"<td>" .$linha['data_de_validade']."</td>";
         echo"</tr>";
+        
     }
 }
+function editar_por_id() {
+    if(isset($GET['editar'])){
+        $id = $GET['editar'];
+        $SQL = "SELECT = FROM produto WHERE idProduto = :idProduto;";
+        $prepare = conexao()->prepare($SQL);
+        $prepare->bindValue (":idProduto", $id);
+        $prepare->execute();
+        if($linha = $prepare->fetch(PDO::FETCH_ASSOC)){
+            ?>
+            <form method="post">
+                <input type="hidden" name="editar" value=" <?= $linha['idProduto'] ?>"/>
+                Nome:
+                <input type="text" name="nome" value=" <?= $linha['nome'] ?>"/>
+                Valor:
+                <input type="text" name="valor" value=" <?= $linha['valor'] ?>"/>
+                Quantidade:
+                <input type="text" name="qtd" value=" <?= $linha['quantidade'] ?>"/>
+                Data de Validade:
+                <input type="text" name="dtval" value=" <?= $linha['data_de_validade'] ?>" />
+                <input type="submit" value="Editar" />
+            </form>
+         <?php
+         }
+    }
+}
+    function editar() {
+    if(
+    isset($_POST['editar']) and
+    isset($_POST['nome']) and
+    isset($_POST['valor']) and
+    isset($_POST['qd']) and
+    isset($_POST['dtval'])
+    )}
