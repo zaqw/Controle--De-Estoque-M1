@@ -35,3 +35,6 @@ input[type="submit"]:active{
   background: #333;    
   color: FFF;
 }
+input[type="submit"]{
+    background-image: 
+}
