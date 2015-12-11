@@ -1,10 +1,12 @@
 *  {
     margin: 0;
     padding: 0;
+    color: darkblue;
 }
 .center{
     width: 980px;
     margin: 100px auto;
+    color: darkblue;
 }
 input[type="text"] {
     width : 100%;
@@ -14,6 +16,7 @@ input[type="text"] {
     border: 1px solid #CCC;
     background: #FFF;
     transition: linear 0.9;
+    color: darkblue;
 }
 
 input[type="text"]:focus {
@@ -34,7 +37,4 @@ input[type="submit"]:hover {
 input[type="submit"]:active{
   background: #333;    
   color: FFF;
-}
-input[type="submit"]{
-    background-image: 
 }

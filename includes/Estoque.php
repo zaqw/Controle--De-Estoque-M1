@@ -8,20 +8,20 @@ if(file_exists("Glogal.php")){
 function salvar() {
     if(
     isset($_PoST['nome']) and
-    isset($_PoST['valor']) and
-    isset($_PoST['qtd']) 
+    isset($_PoST['idade']) and
+    isset($_PoST['cpf']) 
    ){
     $nome =($_PoST['nome']);
-    $valor =($_PoST['valor']);
-    $qtd =($_PoST['qtd']);
-    $dtval =(isset($_PoST['dtval']) ? $_POST['dtval'] : "");
+    $valor =($_PoST['idade']);
+    $qtd =($_PoST['cpf']);
+    $dtval =(isset($_PoST['dtnas']) ? $_POST['dtnas'] : "");
       
-    $SQL = "INSERT INTO produto (nome,valor,quantidade,data_de_validade) values (:nome, :valor, :qtd, :dtval):";
+    $SQL = "INSERT INTO produto (nome,idade,cpf,data_de_nascimento) values (:nome, :idade, :cpf, :dtnas):";
     $preparo = conexao()->preparo($SQL);
     $preparo->bindValue("nome", $nome);
-    $preparo->bindValue("valor", $valor);
-    $preparo->bindValue("qtd", $qtd);
-    $preparo->bindValue("dtval", $dtval);
+    $preparo->bindValue("idade", $valor);
+    $preparo->bindValue("cpf", $qtd);
+    $preparo->bindValue("dtnas", $dtval);
     $preparo->execute();
     if($preparo->rowCount () == 1) {
         echo"Sucesso!";
@@ -41,9 +41,9 @@ function Listar(){
         echo "<td> <a href='?excluir=".$linha['idProduto']."'>Excluir</a></td>";
         echo"<td>" .$linha['idProduto']."</td>";
         echo"<td>" .$linha['nome']."</td>";
-        echo"<td>" .$linha['valor']."</td>";
-        echo"<td>" .$linha['quantidade']."</td>";
-        echo"<td>" .$linha['data_de_validade']."</td>";
+        echo"<td>" .$linha['idade']."</td>";
+        echo"<td>" .$linha['cpf']."</td>";
+        echo"<td>" .$linha['data_de_nascimento']."</td>";
         echo"</tr>";
         
     }
@@ -62,22 +62,15 @@ function editar_por_id() {
                 Nome:
                 <input type="text" name="nome" value=" <?= $linha['nome'] ?>"/>
                 Valor:
-                <input type="text" name="valor" value=" <?= $linha['valor'] ?>"/>
+                <input type="text" name="idade" value=" <?= $linha['valor'] ?>"/>
                 Quantidade:
-                <input type="text" name="qtd" value=" <?= $linha['quantidade'] ?>"/>
+                <input type="text" name="cpf" value=" <?= $linha['quantidade'] ?>"/>
                 Data de Validade:
-                <input type="text" name="dtval" value=" <?= $linha['data_de_validade'] ?>" />
+                <input type="text" name="dtnas" value=" <?= $linha['data_de_validade'] ?>" />
                 <input type="submit" value="Editar" />
             </form>
          <?php
          }
     }
 }
-    function editar() {
-    if(
-    isset($_POST['editar']) and
-    isset($_POST['nome']) and
-    isset($_POST['valor']) and
-    isset($_POST['qd']) and
-    isset($_POST['dtval'])
-    )}
+ 
