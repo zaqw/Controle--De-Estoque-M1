@@ -8,12 +8,12 @@ include './template/header.php';
 
 <form method="post">
     <div class="center">
-        <h2 style="text-align: center;">Cadastro de Produtos</h2>
+        <h2 style="text-align: center;">Cadastro de Nomes</h2>
         Nome: <input type="text" name="nome"/>
-        Valor: <input type="text" name="valor"/>
-        Quantidade: <input type="text" name="qtd"/>
-        Data de validade: <input type="text" name="dtval"/>
-        <input type="submit" value="Cadastrar" />
+        Idade: <input type="text" name="idade"/>
+        CPF: <input type="text" name="cpf"/>
+        Data de Nascimento: <input type="text" name="dtnas"/>
+        <input type="submit" value="Enviar" />
     </div>
 </form>
 
